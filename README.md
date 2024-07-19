@@ -1,6 +1,6 @@
 # github-action-template-rspack
 
-An opinionated github actions template
+An opinionated GitHub Actions Template using [rspack](https://rspack.dev) for bundling.
 
 ## Try it now!
 
