@@ -24000,26 +24000,26 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  version: () => (/* reexport */ version_),
-  v3: () => (/* reexport */ v3_),
-  v4: () => (/* reexport */ v4_),
-  v5: () => (/* reexport */ v5_),
-  NIL: () => (/* reexport */ nil_),
-  stringify: () => (/* reexport */ stringify_),
-  parse: () => (/* reexport */ parse_),
-  v1: () => (/* reexport */ v1_),
-  validate: () => (/* reexport */ validate_)
+  version: () => (/* reexport */ esm_node_version),
+  v3: () => (/* reexport */ v3),
+  v4: () => (/* reexport */ v4),
+  v5: () => (/* reexport */ v5),
+  NIL: () => (/* reexport */ nil),
+  stringify: () => (/* reexport */ stringify),
+  parse: () => (/* reexport */ parse),
+  v1: () => (/* reexport */ esm_node_v1),
+  validate: () => (/* reexport */ validate)
 });
 
 // EXTERNAL MODULE: external "crypto"
-let external_crypto_ = __webpack_require__("6113");
-let external_crypto_default = /*#__PURE__*/__webpack_require__.n(external_crypto_);
+var external_crypto_ = __webpack_require__("6113");
+var external_crypto_default = /*#__PURE__*/__webpack_require__.n(external_crypto_);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/rng.js
 
 const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
 
 let poolPtr = rnds8Pool.length;
-function rng_rng() {
+function rng() {
   if (poolPtr > rnds8Pool.length - 16) {
     external_crypto_default().randomFillSync(rnds8Pool);
     poolPtr = 0;
@@ -24028,15 +24028,15 @@ function rng_rng() {
   return rnds8Pool.slice(poolPtr, poolPtr += 16);
 }
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/regex.js
-/* harmony default export */ const regex_ = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i);
+/* harmony default export */ const regex = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/validate.js
 
 
-function validate(uuid) {
-  return typeof uuid === 'string' && regex_.test(uuid);
+function validate_validate(uuid) {
+  return typeof uuid === 'string' && regex.test(uuid);
 }
 
-/* harmony default export */ const validate_ = (validate);
+/* harmony default export */ const validate = (validate_validate);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/stringify.js
 
 /**
@@ -24050,7 +24050,7 @@ for (let i = 0; i < 256; ++i) {
   byteToHex.push((i + 0x100).toString(16).substr(1));
 }
 
-function stringify(arr, offset = 0) {
+function stringify_stringify(arr, offset = 0) {
   // Note: Be careful editing this code!  It's been tuned for performance
   // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
   const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
@@ -24059,14 +24059,14 @@ function stringify(arr, offset = 0) {
   // "undefined" in the uuid)
   // - Invalid input values for the RFC `version` or `variant` fields
 
-  if (!validate_(uuid)) {
+  if (!validate(uuid)) {
     throw TypeError('Stringified UUID is invalid');
   }
 
   return uuid;
 }
 
-/* harmony default export */ const stringify_ = (stringify);
+/* harmony default export */ const stringify = (stringify_stringify);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v1.js
 
  // **`v1()` - Generate time-based UUID**
@@ -24092,7 +24092,7 @@ function v1(options, buf, offset) {
   // system entropy.  See #189
 
   if (node == null || clockseq == null) {
-    const seedBytes = options.random || (options.rng || rng_rng)();
+    const seedBytes = options.random || (options.rng || rng)();
 
     if (node == null) {
       // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
@@ -24159,15 +24159,15 @@ function v1(options, buf, offset) {
     b[i + n] = node[n];
   }
 
-  return buf || stringify_(b);
+  return buf || stringify(b);
 }
 
-/* harmony default export */ const v1_ = (v1);
+/* harmony default export */ const esm_node_v1 = (v1);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/parse.js
 
 
-function parse(uuid) {
-  if (!validate_(uuid)) {
+function parse_parse(uuid) {
+  if (!validate(uuid)) {
     throw TypeError('Invalid UUID');
   }
 
@@ -24198,7 +24198,7 @@ function parse(uuid) {
   return arr;
 }
 
-/* harmony default export */ const parse_ = (parse);
+/* harmony default export */ const parse = (parse_parse);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v35.js
 
 
@@ -24215,16 +24215,16 @@ function stringToBytes(str) {
   return bytes;
 }
 
-const v35_DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-const v35_URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
-/* harmony default export */ function v35_(name, version, hashfunc) {
+const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
+/* harmony default export */ function v35(name, version, hashfunc) {
   function generateUUID(value, namespace, buf, offset) {
     if (typeof value === 'string') {
       value = stringToBytes(value);
     }
 
     if (typeof namespace === 'string') {
-      namespace = parse_(namespace);
+      namespace = parse(namespace);
     }
 
     if (namespace.length !== 16) {
@@ -24251,7 +24251,7 @@ const v35_URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
       return buf;
     }
 
-    return stringify_(bytes);
+    return stringify(bytes);
   } // Function#name is not settable on some platforms (#270)
 
 
@@ -24260,14 +24260,14 @@ const v35_URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
   } catch (err) {} // For CommonJS default export support
 
 
-  generateUUID.DNS = v35_DNS;
-  generateUUID.URL = v35_URL;
+  generateUUID.DNS = DNS;
+  generateUUID.URL = URL;
   return generateUUID;
 }
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/md5.js
 
 
-function md5(bytes) {
+function md5_md5(bytes) {
   if (Array.isArray(bytes)) {
     bytes = Buffer.from(bytes);
   } else if (typeof bytes === 'string') {
@@ -24277,19 +24277,19 @@ function md5(bytes) {
   return external_crypto_default().createHash('md5').update(bytes).digest();
 }
 
-/* harmony default export */ const md5_ = (md5);
+/* harmony default export */ const md5 = (md5_md5);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v3.js
 
 
-const v3 = v35_('v3', 0x30, md5_);
-/* harmony default export */ const v3_ = (v3);
+const v3_v3 = v35('v3', 0x30, md5);
+/* harmony default export */ const v3 = (v3_v3);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v4.js
 
 
 
-function v4(options, buf, offset) {
+function v4_v4(options, buf, offset) {
   options = options || {};
-  const rnds = options.random || (options.rng || rng_rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  const rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
 
   rnds[6] = rnds[6] & 0x0f | 0x40;
   rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
@@ -24304,10 +24304,10 @@ function v4(options, buf, offset) {
     return buf;
   }
 
-  return stringify_(rnds);
+  return stringify(rnds);
 }
 
-/* harmony default export */ const v4_ = (v4);
+/* harmony default export */ const v4 = (v4_v4);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/sha1.js
 
 
@@ -24321,26 +24321,26 @@ function sha1(bytes) {
   return external_crypto_default().createHash('sha1').update(bytes).digest();
 }
 
-/* harmony default export */ const sha1_ = (sha1);
+/* harmony default export */ const esm_node_sha1 = (sha1);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v5.js
 
 
-const v5 = v35_('v5', 0x50, sha1_);
-/* harmony default export */ const v5_ = (v5);
+const v5_v5 = v35('v5', 0x50, esm_node_sha1);
+/* harmony default export */ const v5 = (v5_v5);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/nil.js
-/* harmony default export */ const nil_ = ('00000000-0000-0000-0000-000000000000');
+/* harmony default export */ const nil = ('00000000-0000-0000-0000-000000000000');
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/version.js
 
 
 function version_version(uuid) {
-  if (!validate_(uuid)) {
+  if (!validate(uuid)) {
     throw TypeError('Invalid UUID');
   }
 
   return parseInt(uuid.substr(14, 1), 16);
 }
 
-/* harmony default export */ const version_ = (version_version);
+/* harmony default export */ const esm_node_version = (version_version);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/index.js
 
 
@@ -26155,13 +26155,13 @@ __webpack_require__.r = function(exports) {
 // webpack/runtime/rspack_version
 (() => {
 __webpack_require__.rv = function () {
-	return "1.0.0-alpha.5";
+	return "1.0.0-beta.0";
 };
 
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.0.0-alpha.5";
+__webpack_require__.ruid = "bundler=rspack@1.0.0-beta.0";
 
 })();
 /************************************************************************/
