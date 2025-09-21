@@ -17,15 +17,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "1.11.1"
   },
   "devDependencies": {
-    "@luxass/eslint-config": "^5.3.0",
-    "@rspack/cli": "^1.5.1",
-    "@rspack/core": "^1.5.1",
-    "@types/node": "^22.0.0",
+    "@luxass/eslint-config": "5.3.0",
+    "@rspack/cli": "1.5.1",
+    "@rspack/core": "1.5.1",
+    "@types/node": "22.17.2",
     "eslint": "^9.34.0",
     "eslint-plugin-format": "^1.0.1",
-    "typescript": "^5.9.2"
+    "typescript": "5.9.2"
   }
 }
