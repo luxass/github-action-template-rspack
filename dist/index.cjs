@@ -3542,12 +3542,12 @@ if (util.nodeMajor > 16 || (util.nodeMajor === 16 && util.nodeMinor >= 8)) {
       throw err
     }
   }
-  module.exports.Headers = (__webpack_require__(1490)/* .Headers */.Headers)
-  module.exports.Response = (__webpack_require__(9209)/* .Response */.Response)
-  module.exports.Request = (__webpack_require__(634)/* .Request */.Request)
-  module.exports.FormData = (__webpack_require__(6484)/* .FormData */.FormData)
-  module.exports.File = (__webpack_require__(2704)/* .File */.File)
-  module.exports.FileReader = (__webpack_require__(9253)/* .FileReader */.FileReader)
+  module.exports.Headers = __webpack_require__(1490)/* .Headers */.Headers
+  module.exports.Response = __webpack_require__(9209)/* .Response */.Response
+  module.exports.Request = __webpack_require__(634)/* .Request */.Request
+  module.exports.FormData = __webpack_require__(6484)/* .FormData */.FormData
+  module.exports.File = __webpack_require__(2704)/* .File */.File
+  module.exports.FileReader = __webpack_require__(9253)/* .FileReader */.FileReader
 
   const { setGlobalOrigin, getGlobalOrigin } = __webpack_require__(2921)
 
