@@ -8,10 +8,18 @@ export default {
   entry: "./src/index.ts",
   output: {
     path: resolve(import.meta.dirname, "dist"),
-    filename: "index.cjs",
+    filename: "index.mjs",
     library: {
-      type: "commonjs2",
+      type: "module",
     },
+    module: true,
+    chunkFormat: 'module',
+    chunkLoading: 'import',
+    workerChunkLoading: 'import',
+  },
+  devtool: false,
+  experiments: {
+    outputModule: true,
   },
   resolve: {
     extensions: [".ts", ".js"],
