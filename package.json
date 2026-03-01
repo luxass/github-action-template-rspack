@@ -20,11 +20,11 @@
     "@actions/core": "1.11.1"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.1",
+    "@eslint/js": "10.0.1",
     "@rspack/cli": "1.6.6",
     "@rspack/core": "1.6.6",
     "@types/node": "24.9.2",
-    "eslint": "9.39.1",
+    "eslint": "10.0.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.48.1"
   }
