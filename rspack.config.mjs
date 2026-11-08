@@ -13,9 +13,9 @@ export default {
       type: "module",
     },
     module: true,
-    chunkFormat: 'module',
-    chunkLoading: 'import',
-    workerChunkLoading: 'import',
+    chunkFormat: "module",
+    chunkLoading: "import",
+    workerChunkLoading: "import",
   },
   devtool: false,
   experiments: {
