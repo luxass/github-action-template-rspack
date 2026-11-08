@@ -18,9 +18,6 @@ export default {
     workerChunkLoading: "import",
   },
   devtool: false,
-  experiments: {
-    outputModule: true,
-  },
   resolve: {
     extensions: [".ts", ".js"],
   },
