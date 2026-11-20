@@ -15,11 +15,11 @@ catalogs:
     "@actions/core": 3.0.1
 
   dev:
-    "@rspack/cli": 2.3.1
-    "@rspack/core": 2.3.1
+    "@rspack/cli": 2.3.2
+    "@rspack/core": 2.3.2
     oxfmt: 0.76.0
     oxlint: 1.91.0
-    oxlint-tsgolint: 7.0.2005
+    oxlint-tsgolint: 7.0.2007
     typescript: 7.0.2
 
   types:
